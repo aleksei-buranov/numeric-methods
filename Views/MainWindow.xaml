@@ -4,9 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NumericMethods"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        xmlns:usercontrols="clr-namespace:NumericMethods.Views.Usercontrols"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:viewModels="clr-namespace:NumericMethods.ViewModels"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium" d:DataContext="{d:DesignInstance viewModels:MainViewModel}"
+        TextElement.FontSize="14"
+        FontFamily="{materialDesign:MaterialDesignFont}"
+        mc:Ignorable="d" Title="MainWindow" Height="450" Width="450">
     <Grid>
-        
+        <TabControl>
+            <TabItem Header="Локализация корней">
+                <usercontrols:Localizer DataContext="{Binding LocalizerViewModel}"/>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>
