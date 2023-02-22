@@ -10,9 +10,9 @@ using System.Windows;
 [assembly: AssemblyTitle("NumericMethods")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Administrator")]
+[assembly: AssemblyCompany("aleksei-buranov")]
 [assembly: AssemblyProduct("NumericMethods")]
-[assembly: AssemblyCopyright("Copyright © Administrator 2023")]
+[assembly: AssemblyCopyright("Copyright © aleksei-buranov 2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
