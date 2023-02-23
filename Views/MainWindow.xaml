@@ -12,39 +12,17 @@
         TextElement.FontWeight="Medium" d:DataContext="{d:DesignInstance viewModels:MainViewModel}"
         TextElement.FontSize="14"
         FontFamily="{materialDesign:MaterialDesignFont}" WindowStartupLocation="CenterScreen"
-        mc:Ignorable="d" Title="Численные методы решения уравнений" Width="600" Height="650" MinHeight="650" MinWidth="600">
+        mc:Ignorable="d" Title="Численные методы решения уравнений" Width="700" Height="550" MinHeight="550" MinWidth="700">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"></ColumnDefinition>
-            <ColumnDefinition Width="3*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <GroupBox Header="Вводные данные">
-            <StackPanel Orientation="Vertical" Margin="10">
-                <TextBlock FontSize="16" FontWeight="Bold" Text="{Binding VisibleEquation}" Margin="0 10"/>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Margin="5 0" VerticalAlignment="Center" Text="X1 (начальное):"/>
-                    <TextBox MinWidth="50" Text="{Binding XMin}"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Margin="5 0" VerticalAlignment="Center" Text="X2 (конечное):"/>
-                    <TextBox MinWidth="50" Text="{Binding XMax}"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Margin="5 0" VerticalAlignment="Center" Text="H (приращение):"/>
-                    <TextBox MinWidth="50" Text="{Binding Step}"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Margin="5 0" VerticalAlignment="Center" Text="E (точность):"/>
-                    <TextBox MinWidth="50" Text="{Binding Precision}"/>
-                </StackPanel>
-            </StackPanel>
-        </GroupBox>
-        <TabControl Grid.Column="1">
+        <TabControl TabStripPlacement="Left">
             <TabItem Header="Локализация корней">
                 <usercontrols:Localizer DataContext="{Binding LocalizerViewModel}"/>
             </TabItem>
             <TabItem Header="Половинное деление">
                 <usercontrols:HalfDivisioner DataContext="{Binding HalfDivisionerViewModel}"/>
+            </TabItem>
+            <TabItem Header="Простая итерация">
+                <usercontrols:SimpleIterator DataContext="{Binding SimpleIteratorViewModel}"/>
             </TabItem>
         </TabControl>
     </Grid>
