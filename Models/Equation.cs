@@ -6,6 +6,8 @@ namespace NumericMethods.Models
     {
         public string StringValue { get; set; }
         public Func<double, double> CalculateRoot { get; set; }
+        public Func<double, double> CalculateFirstDerivative { get; set; }
+        public Func<double, double> CalculateSecondDerivative { get; set; }
 
     }
 }

@@ -69,5 +69,24 @@ namespace NumericMethods.Service
 
             return x;
         }
+
+        public static double FindRootWithNewtonMethod(Equation equation,
+            double a, double b, double precision)
+        {
+            var x = equation.CalculateRoot(a) * equation.CalculateSecondDerivative(a) > 0 ? a : b;
+            var product = equation.CalculateRoot(x) * equation.CalculateSecondDerivative(x);
+            var derivative = equation.CalculateFirstDerivative(x);
+            if (derivative == 0 || Math.Abs(product) >= Math.Pow(derivative, 2))
+                return double.NaN;
+            double currentPrecision, root;
+            do
+            {
+                root = equation.CalculateRoot(x);
+                currentPrecision = root / equation.CalculateFirstDerivative(x);
+                x -= currentPrecision;
+            } while (!(Math.Abs(currentPrecision) < precision && Math.Abs(root) <= precision));
+
+            return x;
+        }
     }
 }

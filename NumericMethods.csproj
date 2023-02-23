@@ -66,12 +66,16 @@
     <Compile Include="ViewModels\HalfDivisionerViewModel.cs" />
     <Compile Include="ViewModels\LocalizerViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\NewtonCalculatorViewModel.cs" />
     <Compile Include="ViewModels\SimpleIteratorViewModel.cs" />
     <Compile Include="Views\Usercontrols\HalfDivisioner.xaml.cs">
       <DependentUpon>HalfDivisioner.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Usercontrols\Localizer.xaml.cs">
       <DependentUpon>Localizer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Usercontrols\NewtonCalculator.xaml.cs">
+      <DependentUpon>NewtonCalculator.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Usercontrols\SimpleIterator.xaml.cs">
       <DependentUpon>SimpleIterator.xaml</DependentUpon>
@@ -93,6 +97,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Usercontrols\Localizer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Usercontrols\NewtonCalculator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
