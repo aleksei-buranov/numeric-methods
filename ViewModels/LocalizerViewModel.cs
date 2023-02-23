@@ -28,8 +28,9 @@ namespace NumericMethods.ViewModels
         {
             Equation.SetValues(new Equation(XMin, XMax, Step));
             RootsCollection.Clear();
-            foreach (var root in Calculator.FindEquationRoots(Equation))
-                RootsCollection.Add(root);
+            var roots = Calculator.FindEquationRoots(Equation);
+            foreach (var alternatingRoots in Calculator.FindAlternatingRoots(roots))
+                RootsCollection.Add(alternatingRoots);
         }
     }
 }
