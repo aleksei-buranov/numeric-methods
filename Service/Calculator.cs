@@ -7,13 +7,13 @@ namespace NumericMethods.Service
 {
     internal class Calculator
     {
-        public static List<EquationRoots> FindEquationRoots(Equation equation)
+        public static List<EquationRoots> FindEquationRoots(Equation equation, double xMin, double xMax, double step)
         {
             var roots = new List<EquationRoots>();
 
-            for (double x = equation.XMin; x < equation.XMax; x += equation.Step)
+            for (double x = xMin; x < xMax; x += step)
             {
-                var y = Equation.CalculateRoot(x);
+                var y = equation.CalculateRoot(x);
                 roots.Add(new EquationRoots(x, y));
             }
 
@@ -36,22 +36,38 @@ namespace NumericMethods.Service
             return result;
         }
 
-        public static Tuple<double, double> FindRootWithHalfDivision(Equation equation)
+        public static Tuple<double, double> FindRootWithHalfDivision(Equation equation,
+            double xmin, double xmax, double precision)
         {
-            var start = equation.XMin;
-            var end = equation.XMax;
+            var start = xmin;
+            var end = xmax;
             do
             {
                 var half = (start + end) / 2;
 
-                if (Equation.CalculateRoot(start) * Equation.CalculateRoot(half) < 0)
+                if (equation.CalculateRoot(start) * equation.CalculateRoot(half) < 0)
                     end = half;
                 else
                     start = half;
 
-            } while (end - start > equation.Precision);
+            } while (end - start > precision);
 
             return new Tuple<double, double>((start + end) / 2, (end - start) / 2);
+        }
+
+        public static double FindRootWithSimpleIteration(Equation equation,
+            double x, double precision, double q)
+        {
+            double p, a = precision * (1 - q) / q;
+            do
+            {
+                var y = equation.CalculateRoot(x);
+                p = x - y;
+                x = y;
+
+            } while (Math.Abs(p) > a);
+
+            return x;
         }
     }
 }
