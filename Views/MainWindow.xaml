@@ -24,6 +24,9 @@
             <TabItem Header="Простая итерация">
                 <usercontrols:SimpleIterator DataContext="{Binding SimpleIteratorViewModel}"/>
             </TabItem>
+            <TabItem Header="Метод Ньютона">
+                <usercontrols:NewtonCalculator DataContext="{Binding NewtonCalculatorViewModel}"/>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>
