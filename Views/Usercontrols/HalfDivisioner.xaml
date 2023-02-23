@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="NumericMethods.Views.Usercontrols.HalfDivisioner"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NumericMethods.Views.Usercontrols"
+             xmlns:viewModels="clr-namespace:NumericMethods.ViewModels"
+             mc:Ignorable="d" d:DataContext="{d:DesignInstance viewModels:HalfDivisionerViewModel}"
+             d:DesignHeight="450" d:DesignWidth="400" >
+    <Grid>
+        <Grid.RowDefinitions>
+        <RowDefinition Height="50"/>
+        <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0" VerticalAlignment="Center" Content="Найти корень" HorizontalAlignment="Center"
+                Command="{Binding CalculateRootWithHalfDivisionCommand}"/>
+        <StackPanel HorizontalAlignment="Center" Grid.Row="1" Orientation="Vertical">
+            <TextBlock Margin="0 5" Text="{Binding Path=Root, 
+                StringFormat='Значение X:{0:G}', UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+            <TextBlock Margin="0 5" Text="{Binding Path=Boundary, 
+                StringFormat='Граница погрешности:{0:G}', UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+        </StackPanel>
+    </Grid>
+</UserControl>
