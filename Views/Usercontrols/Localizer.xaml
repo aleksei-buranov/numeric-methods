@@ -7,6 +7,16 @@
              xmlns:viewModels="clr-namespace:NumericMethods.ViewModels"
              mc:Ignorable="d" d:DataContext="{d:DesignInstance viewModels:LocalizerViewModel }"
              d:DesignHeight="450" d:DesignWidth="500" >
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <Style TargetType="DataGridCell" BasedOn="{StaticResource MaterialDesignDataGridCell}">
+                <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            </Style>
+            <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
+                <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -14,17 +24,17 @@
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0">
             <StackPanel Orientation="Vertical" Margin="10">
-                <TextBlock Text="{Binding VisibleEquation}"></TextBlock>
+                <TextBlock FontSize="16" FontWeight="Bold" Text="{Binding VisibleEquation}" Margin="0 10"/>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock VerticalAlignment="Center" Text="X1 (начальное):"/>
+                    <TextBlock Margin="5 0" VerticalAlignment="Center" Text="X1 (начальное):"/>
                     <TextBox Width="50" Text="{Binding XMin}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock VerticalAlignment="Center" Text="X2 (конечное):"/>
+                    <TextBlock Margin="5 0" VerticalAlignment="Center" Text="X2 (конечное):"/>
                     <TextBox Width="50" Text="{Binding XMax}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock VerticalAlignment="Center" Text="H (приращение):"/>
+                    <TextBlock Margin="5 0" VerticalAlignment="Center" Text="H (приращение):"/>
                     <TextBox Width="50" Text="{Binding Step}"/>
                 </StackPanel>
             </StackPanel>
@@ -32,11 +42,11 @@
                     Command="{Binding StartRootsCalculationCommand}"/>
         </StackPanel>
         <DataGrid Grid.Column="1" CanUserAddRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False"
-                  CanUserResizeColumns="False"
+                  CanUserResizeColumns="False" AlternatingRowBackground="LightGray" IsReadOnly="True"
                   ItemsSource="{Binding RootsCollection}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="X" Binding="{Binding X, StringFormat={}{0:F}}"/>
-                <DataGridTextColumn Header="Y" Binding="{Binding Y, StringFormat={}{0:F}}"/>
+                <DataGridTextColumn MinWidth="50" Width="1*" Header="X" Binding="{Binding X, StringFormat={}{0:F}}"/>
+                <DataGridTextColumn MinWidth="50" Width="1*" Header="Y" Binding="{Binding Y, StringFormat={}{0:F}}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
