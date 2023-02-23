@@ -1,4 +1,5 @@
 ﻿using NumericMethods.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -33,6 +34,24 @@ namespace NumericMethods.Service
             }
 
             return result;
+        }
+
+        public static Tuple<double, double> FindRootWithHalfDivision(Equation equation)
+        {
+            var start = equation.XMin;
+            var end = equation.XMax;
+            do
+            {
+                var half = (start + end) / 2;
+
+                if (Equation.CalculateRoot(start) * Equation.CalculateRoot(half) < 0)
+                    end = half;
+                else
+                    start = half;
+
+            } while (end - start > equation.Precision);
+
+            return new Tuple<double, double>((start + end) / 2, (end - start) / 2);
         }
     }
 }

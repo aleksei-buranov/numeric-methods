@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:NumericMethods.Views.Usercontrols"
              xmlns:viewModels="clr-namespace:NumericMethods.ViewModels"
              mc:Ignorable="d" d:DataContext="{d:DesignInstance viewModels:LocalizerViewModel }"
-             d:DesignHeight="450" d:DesignWidth="500" >
+             d:DesignHeight="450" d:DesignWidth="400" >
     <UserControl.Resources>
         <ResourceDictionary>
             <Style TargetType="DataGridCell" BasedOn="{StaticResource MaterialDesignDataGridCell}">
@@ -18,30 +18,13 @@
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0">
-            <StackPanel Orientation="Vertical" Margin="10">
-                <TextBlock FontSize="16" FontWeight="Bold" Text="{Binding VisibleEquation}" Margin="0 10"/>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Margin="5 0" VerticalAlignment="Center" Text="X1 (начальное):"/>
-                    <TextBox Width="50" Text="{Binding XMin}"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Margin="5 0" VerticalAlignment="Center" Text="X2 (конечное):"/>
-                    <TextBox Width="50" Text="{Binding XMax}"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Margin="5 0" VerticalAlignment="Center" Text="H (приращение):"/>
-                    <TextBox Width="50" Text="{Binding Step}"/>
-                </StackPanel>
-            </StackPanel>
-            <Button Content="Найти корни" HorizontalAlignment="Center"
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0" VerticalAlignment="Center" Content="Найти корни" HorizontalAlignment="Center"
                     Command="{Binding StartRootsCalculationCommand}"/>
-        </StackPanel>
-        <DataGrid Grid.Column="1" CanUserAddRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False"
+        <DataGrid Grid.Row="1" CanUserAddRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False"
                   CanUserResizeColumns="False" AlternatingRowBackground="LightGray" IsReadOnly="True"
                   ItemsSource="{Binding RootsCollection}">
             <DataGrid.Columns>

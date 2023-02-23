@@ -12,26 +12,25 @@ namespace NumericMethods.Models
 
         public Equation()
         {
+            XMin = -10;
+            XMax = 10;
+            Step = 0.1;
+            Precision = 0.0001;
         }
 
-        public Equation(double xMin, double xMax, double step)
+        public Equation(double xMin, double xMax, double step, double precision)
         {
             XMin = xMin;
             XMax = xMax;
             Step = step;
+            Precision = precision;
         }
 
-        public void SetValues(Equation equation2)
-        {
-            XMin = equation2.XMin;
-            XMax = equation2.XMax;
-            Step = equation2.Step;
-        }
+        public double XMin { get; set; }
 
-        public double XMin { get; private set; }
+        public double XMax { get; set; }
 
-        public double XMax { get; private set; }
-
-        public double Step { get; private set; }
+        public double Step { get; set; }
+        public double Precision { get; set; }
     }
 }

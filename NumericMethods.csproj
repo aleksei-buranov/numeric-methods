@@ -63,8 +63,12 @@
     <Compile Include="Models\EquationRoots.cs" />
     <Compile Include="Service\Calculator.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\HalfDivisionerViewModel.cs" />
     <Compile Include="ViewModels\LocalizerViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="Views\Usercontrols\HalfDivisioner.xaml.cs">
+      <DependentUpon>HalfDivisioner.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Usercontrols\Localizer.xaml.cs">
       <DependentUpon>Localizer.xaml</DependentUpon>
     </Compile>
@@ -80,6 +84,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\Usercontrols\HalfDivisioner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Usercontrols\Localizer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -7,28 +7,22 @@ namespace NumericMethods.ViewModels
 {
     internal class LocalizerViewModel : BaseViewModel
     {
-        public LocalizerViewModel()
+        public LocalizerViewModel(MainViewModel parentViewModel)
         {
+            ParentViewModel = parentViewModel;
             RootsCollection = new ObservableCollection<EquationRoots>();
-            Equation = new Equation();
         }
 
+        private MainViewModel ParentViewModel { get; }
+
         public ObservableCollection<EquationRoots> RootsCollection { get; }
-        public Equation Equation { get; }
-
-        public string VisibleEquation => Equation.StringValue;
-
-        public double XMin { get; set; } = -10;
-        public double XMax { get; set; } = 10;
-        public double Step { get; set; } = 0.1;
 
         public RelayCommand StartRootsCalculationCommand => new RelayCommand(StartRootsCalculation);
 
         private void StartRootsCalculation()
         {
-            Equation.SetValues(new Equation(XMin, XMax, Step));
             RootsCollection.Clear();
-            var roots = Calculator.FindEquationRoots(Equation);
+            var roots = Calculator.FindEquationRoots(ParentViewModel.Equation);
             foreach (var alternatingRoots in Calculator.FindAlternatingRoots(roots))
                 RootsCollection.Add(alternatingRoots);
         }
