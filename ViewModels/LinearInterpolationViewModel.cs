@@ -5,12 +5,12 @@ using System.Collections.ObjectModel;
 
 namespace NumericMethods.ViewModels
 {
-    internal class LagrangeCalculatorViewModel : BaseViewModel
+    internal class LinearInterpolationViewModel : BaseViewModel
     {
         private double _desiredX;
         private double _fx;
 
-        public LagrangeCalculatorViewModel()
+        public LinearInterpolationViewModel()
         {
             NodeCollection = new ObservableCollection<EquationRoots>(new[]
             {
@@ -48,11 +48,11 @@ namespace NumericMethods.ViewModels
             }
         }
 
-        public RelayCommand CalculateLagrangeInterpolationCommand => new RelayCommand(CalculateLagrangeInterpolation);
+        public RelayCommand CalculateLinearInterpolationCommand => new RelayCommand(CalculateLinearInterpolation);
 
-        private void CalculateLagrangeInterpolation()
+        private void CalculateLinearInterpolation()
         {
-            Fx = Calculator.FindLagrangeInterpolationValue(NodeCollection, DesiredX);
+            Fx = Calculator.FindLinearInterpolationValue(NodeCollection, DesiredX);
         }
     }
 }

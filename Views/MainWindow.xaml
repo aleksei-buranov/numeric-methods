@@ -30,6 +30,9 @@
             <TabItem Header="Многочлен Лагранжа">
                 <usercontrols:LagrangeCalculator DataContext="{Binding LagrangeCalculatorViewModel}"/>
             </TabItem>
+            <TabItem Header="Линейная интерполяция">
+                <usercontrols:LinearInterpolation DataContext="{Binding LinearInterpolationViewModel}"/>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>

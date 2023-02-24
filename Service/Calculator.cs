@@ -104,5 +104,34 @@ namespace NumericMethods.Service
 
             return fX;
         }
+
+        public static double FindLinearInterpolationValue(IEnumerable<EquationRoots> nodes, double desiredX)
+        {
+            var nodeList = nodes.ToList();
+
+            int neededIndex = 0, tempIndex = 0;
+            if (desiredX < nodeList.First().X)
+                neededIndex = 1;
+            else if (desiredX > nodeList.Last().X)
+                neededIndex = nodeList.Count - 1;
+            else
+                while (tempIndex < nodeList.Count)
+                {
+                    tempIndex++;
+                    if (desiredX >= nodeList[tempIndex - 1].X && desiredX <= nodeList[tempIndex].X)
+                    {
+                        neededIndex = tempIndex;
+                        break;
+                    }
+
+                }
+
+            var a = (nodeList[neededIndex].Y - nodeList[neededIndex - 1].Y)
+                    / (nodeList[neededIndex].X - nodeList[neededIndex - 1].X);
+            var b = nodeList[neededIndex - 1].Y - a * nodeList[neededIndex - 1].X;
+            var fX = a * desiredX + b;
+
+            return fX;
+        }
     }
 }
