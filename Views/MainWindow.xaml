@@ -27,6 +27,9 @@
             <TabItem Header="Метод Ньютона">
                 <usercontrols:NewtonCalculator DataContext="{Binding NewtonCalculatorViewModel}"/>
             </TabItem>
+            <TabItem Header="Многочлен Лагранжа">
+                <usercontrols:LagrangeCalculator DataContext="{Binding LagrangeCalculatorViewModel}"/>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>
