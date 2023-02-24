@@ -88,5 +88,21 @@ namespace NumericMethods.Service
 
             return x;
         }
+
+        public static double FindLagrangeInterpolationValue(IEnumerable<EquationRoots> nodes, double desiredX)
+        {
+            var nodeList = nodes.ToList();
+
+            double fX = 0;
+            foreach (var node in nodeList)
+            {
+                double polynomialTermPart = nodeList.Where(innerNode => innerNode != node)
+                    .Aggregate<EquationRoots, double>(1, (current, innerNode)
+                        => current * ((desiredX - innerNode.X) / (node.X - innerNode.X)));
+                fX += node.Y * polynomialTermPart;
+            }
+
+            return fX;
+        }
     }
 }
