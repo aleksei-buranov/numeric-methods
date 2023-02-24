@@ -15,10 +15,10 @@ namespace NumericMethods.ViewModels
             NodeCollection = new ObservableCollection<EquationRoots>(new[]
             {
                 new EquationRoots(-1, 1),
-                new EquationRoots(2, -2),
-                new EquationRoots(5, 3),
-                new EquationRoots(6, 7),
-                new EquationRoots(8, 2),
+                new EquationRoots(0, 0.7272727272727273),
+                new EquationRoots(1, 0.4545454545454546),
+                new EquationRoots(2, 0.18181818181818188),
+                new EquationRoots(7, -1.1818181818181817),
                 new EquationRoots(10, -2),
             });
             DesiredX = 2.5;
